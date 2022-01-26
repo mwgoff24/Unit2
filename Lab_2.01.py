@@ -18,5 +18,5 @@ Alter one line of that program to return only whole numbers.
 
 '''
 number=input("Pick a number to divide by 2. ")
-print(int(number)/2)
+print(int(number)//2)
 int(number)
