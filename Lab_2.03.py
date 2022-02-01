@@ -115,4 +115,22 @@ answer=input("What number door will you pick? ")
 
 #prize won
 if int(answer) == 1:
-    print (f"You win: {prize1}!")
+    print(f"You win: {prize1}!")
+elif int(answer) ==2:
+    print(f"You win: {prize2}!")
+elif int(answer) ==3:
+    print(f"You win: {prize3}!")
+elif int(answer) ==4:
+    print(f"You win: {prize4}!")
+elif int(answer) ==5:
+    print(f"You win: {prize5}!")
+elif int(answer) ==6:
+    print(f"You win: {prize6}!")
+elif int(answer) ==7:
+    print(f"You win: {prize7}!")
+elif int(answer) ==8:
+    print(f"You win: {prize8}!")
+elif int(answer) ==9:
+    print(f"You win: {prize9}!")
+else:
+    print(f"Sorry, but you win {prize10}.")
