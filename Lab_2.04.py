@@ -44,7 +44,9 @@ User picks a number.
 Print prize associated with the door user picked.
 
 #prize game code
-prizeList=['prize0', 'prize1', 'prize2', 'prize3', 'prize4', 'prize5', 'prize6', 'prize7', 'prize8', 'prize9',]
+prizeList=['a trophy', 'a guitar', 'a drum kit', 'a cat', 'a dog', 'a computer', 'an umbrella', 'a warm coat', 'some money', 'nothing',]
+prize=int(input("Pick a number between 0 and 9. "))
+print(f"You win {prizeList[prize]}!")
 
 3. Create a quiz
 --------------------------------------------------
@@ -70,6 +72,11 @@ if user_input == 'y':
   score[0] = score[0] + 1
   score[5] = score[5] + 1
 
+------------------------------
+My Code
+------------------------------
+
+
 ##############################
 Together in class:
 ##############################
@@ -85,11 +92,56 @@ print(b)
 Bonus - In your Notebook
 How would you access d from the list a?
 '''
-#prize game code
-prizeList=['a trophy', 'a guitar', 'a drum kit', 'a cat', 'a dog', 'a computer', 'an umbrella', 'a warm coat', 'some money', 'nothing',]
-prize=input("Pick a number between 1 and 10. ")
-if prize == prizeList[prize]+1:
-    print(f"You win: {prizeList[0]}.")
-else:
-    print("You lose.")
-#print(f'Your prize is {prizeList.index(int(prize)-1)}')
+#starter code
+food = ['donuts', 'pancakes', 'bacon', 'waffles','eggs','bagels']
+score = [0,0,0,0,0,0]
+
+print('Please answer each questions with "y" for "yes" and "n" for "no."')
+q1 = input('Do you like food with holes? ')
+if q1 == 'y':
+  score[0] = score[0] + 1
+  score[5] = score[5] + 1
+
+#more questions
+q2 = input("Do you like animal products? ")
+if q2 == 'y':
+    score[2] = score[2] + 1
+    score[4] = score[4] + 1
+q3 = input("Do you like foods with diverse flavors? ")
+if q3 == 'y':
+    score[0] = score[0] + 1
+    score[5] = score[5] + 1
+q4 = input("Do you like syrup? ")
+if q4 == 'y':
+    score[1] = score[1] + 1
+    score[3] = score[3] + 1
+q5 = input("Do you like foods with many types of preperation? ")
+if q5 == 'y':
+    score[4] = score[4] + 1
+q6 = input("Do you like crispy/crunchy foods? ")
+if q6 == 'y':
+    score[2] = score[2] + 1
+    score[3] = score[3] + 1
+q7 = input("Do you like chewy foods? ")
+if q7 == 'y':
+    score[0] = score[0] + 1
+    score[1] = score[1] + 1
+    score[4] = score[4] + 1
+    score[5] = score[5] + 1
+q8 = input("Do you like food? ")
+if q8 == 'y':
+    score[0] = score[0] + 1
+    score[1] = score[1] + 1
+    score[2] = score[2] + 1
+    score[3] = score[3] + 1
+    score[4] = score[4] + 1
+    score[5] = score[5] + 1
+food[0]=score[0]
+food[1]=score[1]
+food[2]=score[2]
+food[3]=score[3]
+food[4]=score[4]
+food[5]=score[5]
+
+N = 4
+print(f"Your two favorite foods are {food[N:]}")
