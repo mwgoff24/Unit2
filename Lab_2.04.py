@@ -10,30 +10,30 @@ Example 1
     print(a[0])
     print(a[3])
 
-    prediction:                                            
-    actual:
+    prediction: prints a and d                                            
+    actual: same as prediction
 
 Example 2
     a = ['a', 'b', 'c', 'd', 'e']
     print(a[len(a) - 3])
 
-    prediction:
-    actual:
+    prediction: prints 2
+    actual: prints c
 
 Example 3
     a = ['a', 'b', 'c', 'd', 'e']
     print(a[len(a) - 6])
 
-    prediction:
-    actual:
+    prediction: error
+    actual: e
 
 Example 4
     a = ['a', 'b', 'c', 'd', 'e']
     a[3] = 'haha'
     print(a)
 
-    prediction:
-    actual:
+    prediction: ['a', 'b', 'c', 'haha', 'e']
+    actual: same as prediction
 
 2. Create this game again using lists and indexes
 --------------------------------------------------
@@ -42,6 +42,9 @@ Declare 10 prizes (prize0, prize1, prize2 at the top of your file), but store th
 User picks a number.
 
 Print prize associated with the door user picked.
+
+#prize game code
+prizeList=['prize0', 'prize1', 'prize2', 'prize3', 'prize4', 'prize5', 'prize6', 'prize7', 'prize8', 'prize9',]
 
 3. Create a quiz
 --------------------------------------------------
@@ -82,3 +85,11 @@ print(b)
 Bonus - In your Notebook
 How would you access d from the list a?
 '''
+#prize game code
+prizeList=['a trophy', 'a guitar', 'a drum kit', 'a cat', 'a dog', 'a computer', 'an umbrella', 'a warm coat', 'some money', 'nothing',]
+prize=input("Pick a number between 1 and 10. ")
+if prize == prizeList[prize]+1:
+    print(f"You win: {prizeList[0]}.")
+else:
+    print("You lose.")
+#print(f'Your prize is {prizeList.index(int(prize)-1)}')
