@@ -75,23 +75,6 @@ if user_input == 'y':
 ------------------------------
 My Code
 ------------------------------
-
-
-##############################
-Together in class:
-##############################
-Research nested lists and work through the following Examples:
-
-Bonus Example 1
-a = ['a', 'b', 'c', ['d', 'e']]
-print(len(a))
-Bonus Example 2
-a = ['a', 'b', 'c', ['d', 'e']]
-b = a[3]
-print(b)
-Bonus - In your Notebook
-How would you access d from the list a?
-'''
 #starter code
 food = ['donuts', 'pancakes', 'bacon', 'waffles','eggs','bagels']
 score = [0,0,0,0,0,0]
@@ -136,12 +119,28 @@ if q8 == 'y':
     score[3] = score[3] + 1
     score[4] = score[4] + 1
     score[5] = score[5] + 1
-food[0]=score[0]
-food[1]=score[1]
-food[2]=score[2]
-food[3]=score[3]
-food[4]=score[4]
-food[5]=score[5]
 
-N = 4
-print(f"Your two favorite foods are {food[N:]}")
+#results
+
+print(score)
+print(food)
+
+print(f"Your favorite food is {food[score.index(max(score))]}.")
+#I can't get this program to display two foods correctly.
+
+##############################
+Together in class:
+##############################
+Research nested lists and work through the following Examples:
+
+Bonus Example 1
+a = ['a', 'b', 'c', ['d', 'e']]
+print(len(a))
+Bonus Example 2
+a = ['a', 'b', 'c', ['d', 'e']]
+b = a[3]
+print(b)
+Bonus - In your Notebook
+How would you access d from the list a?
+Type in print(a[3][0]).
+'''
