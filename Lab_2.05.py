@@ -96,7 +96,10 @@ f"{board[6]} | {board[7]} | {board[8]}")
 turn = int(input("Pick a spot to place your marker on. "))-1
 
 #replacing spot with X
-board[turn] = 'X'
+if turn >= 10 or turn <= 0:
+    print("That's not a spot.")
+else:
+    board[turn] = 'X'
 
 #showing updated board
 print(f"{board[0]} | {board[1]} | {board[2]} \n"
