@@ -29,10 +29,17 @@ while True:
         print("The room you are in has a sword in it.")
     elif location == 'up-stairs':
         print("The room you are in has stairs leading up.")
+    elif location == 'down-stairs':
+        print("The room you are in has stairs leading down.")
     elif location == 'monster':
         print("Oh no! You ran into a monster!")
     elif location == 'magic stones':
         print("It's your lucky day! You ran into some magic stones!")
+    elif location == 'boss monster':
+        print("You are almost done! You just have this final boss to defeat! You can do it!")
+    else:
+        print("You defeated the monster! Therefore you earn the final prize! Way to go!")
+        break
 
 
     #player choices
@@ -49,3 +56,19 @@ while True:
         if current_room == -1:
             print("There are no more rooms in this direction. ")
             current_room = 0
+    elif player_choices == 'up':
+        current_floor -=1
+        if location != 'up-stairs':
+            print("You can't go up to the next floor here.")
+            current_floor +=1
+    elif player_choices == 'down':
+        current_floor +=1
+        if location != 'down-stairs':
+            print("You can't go down to the next floor here.")
+            current_floor -=1
+    elif player_choices == 'grab':
+        if location == 'sword' or location == 'magic stones':
+            inventory.append(location)
+            dungeon[current_floor][current_room] = 'nothing'
+        else:
+            print("There is nothing to grab in this room!")
