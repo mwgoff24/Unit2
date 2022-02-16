@@ -3,7 +3,7 @@
 #Map of dungeon
 dungeon = [
     ['prize', 'boss monster', 'magic stones', 'sword', 'down-stairs'], 
-    ['nothing', 'magic stones', 'down-stairs', 'monster', 'up-stairs'], 
+    ['nothing', 'sword', 'down-stairs', 'monster', 'up-stairs'], 
     ['nothing', 'sword', 'up-stairs', 'monster', 'magic stones']]
 
 #player info
@@ -38,8 +38,7 @@ while True:
     elif location == 'boss monster':
         print("You are almost done! You just have this final boss to defeat! You can do it!")
     else:
-        print("You defeated the monster! Therefore you earn the final prize! Way to go!")
-        break
+        print("You defeated the monster! Therefore you can grab the final prize! Way to go!")
 
 
     #player choices
@@ -48,10 +47,13 @@ while True:
 
 #going right
     if player_choices == 'right':
-        current_room += 1
+        current_room +=1
         if current_room == 5:
             print("There are no more rooms in this direction. ")
             current_room = 4
+        elif location == 'monster':
+            print("You can't move past a monster into the next room! It killed you!")
+            break
 
 #going left
     elif player_choices == 'left':
@@ -59,6 +61,9 @@ while True:
         if current_room == -1:
             print("There are no more rooms in this direction. ")
             current_room = 0
+        elif location == 'boss monster':
+            print("YOu need to defeat the boss monster before you claim the prize! It killed you!")
+            break
 
 #going up
     elif player_choices == 'up':
@@ -79,6 +84,9 @@ while True:
         if location == 'sword' or location == 'magic stones':
             inventory.append(location)
             dungeon[current_floor][current_room] = 'nothing'
+        elif location == 'prize':
+            print("Congratulations!")
+            break
         else:
             print("There is nothing to grab in this room!")
 
@@ -92,14 +100,26 @@ while True:
             if 'sword' in inventory:
                print("What a success! You have successfully killed a monster!")
                dungeon[current_floor][current_room] = 'nothing'
+               inventory.remove('sword')
             else:
                 print("You can't fight a monster without a sword! You are now dead!") 
                 break
         elif location == 'boss monster':
-            if len(inventory) <=2:
-                print("You can't fight the boss because you don't have enough items! Turn back quickly!")
-            inventory.remove(inventory[0]) and inventory.remove(inventory[1])
-            dungeon[current_floor][current_room] = 'nothing'
-            print("Good job! You have killed the boss monster! Now go left to claim your prize!")
+            if 'sword' and 'magic stones' in inventory:
+                dungeon[current_floor][current_room] = 'nothing'
+                print("Good job! You have killed the boss monster! Now go left to claim your prize!")
+                inventory.remove('sword')
+                inventory.remove('magic stones')
+            else:
+                print("You didn't have the necessary items to fight the boss! You died!")
+                break
         else:
             print("What are you going to fight in here, the walls?")
+
+#asking for help
+    elif player_choices == 'help':
+        print("In this game, you can either move left, right, up, down, grab items, fight monsters, or ask for these commands again.")
+
+    else:
+        print("That is not an available command. \n"
+        "In this game, you can either move left, right, up, down, grab items, fight monsters, or ask for these commands again.")
