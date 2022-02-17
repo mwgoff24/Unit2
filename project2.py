@@ -14,7 +14,7 @@ location = dungeon[current_floor][current_room]
 
 #game intro
 print("Welcome to the Text Monster Game! You have been placed in a dungeon, and you need to find the prize! \n"
-"In this game, you can either move left, right, up, down, grab items, fight monsters, or ask for these commands again.")
+"In this game, you can either move left, right, up, down, grab items, fight monsters, view your inventory, or ask for these commands again.")
 
 #game loop
 while True:
@@ -24,32 +24,39 @@ while True:
 
     #describe location to user
     if location == 'nothing':
-        print("The room you are in has nothing in it.")
+        print("\n"
+        "The room you are in has nothing in it.")
     elif location == 'sword':
-        print("The room you are in has a sword in it.")
+        print("\n"
+        "The room you are in has a sword in it.")
     elif location == 'up-stairs':
-        print("The room you are in has stairs leading up.")
+        print("\n"
+        "The room you are in has stairs leading up.")
     elif location == 'down-stairs':
-        print("The room you are in has stairs leading down.")
+        print("\n"
+        "The room you are in has stairs leading down.")
     elif location == 'monster':
-        print("Oh no! You ran into a monster!")
+        print("\n"
+        "Oh no! You ran into a monster!")
     elif location == 'magic stones':
-        print("It's your lucky day! You ran into some magic stones!")
+        print("\n"
+        "It's your lucky day! You ran into some magic stones!")
     elif location == 'boss monster':
-        print("You are almost done! You just have this final boss to defeat! You can do it!")
+        print("\n"
+        "You are almost done! You just have this final boss to defeat! You can do it!")
     else:
-        print("You defeated the monster! Therefore you can grab the final prize! Way to go!")
+        print("\n"
+        "You can now grab the final prize! Way to go!")
 
 
     #player choices
     player_choices = input("What would you like to do? ")
-    print(player_choices)
 
 #going right
     if player_choices == 'right':
         current_room +=1
         if current_room == 5:
-            print("There are no more rooms in this direction. ")
+            print("There are no rooms in this direction. ")
             current_room = 4
         elif location == 'monster':
             print("You can't move past a monster into the next room! It killed you!")
@@ -59,10 +66,10 @@ while True:
     elif player_choices == 'left':
         current_room -=1
         if current_room == -1:
-            print("There are no more rooms in this direction. ")
+            print("There are no rooms in this direction. ")
             current_room = 0
         elif location == 'boss monster':
-            print("YOu need to defeat the boss monster before you claim the prize! It killed you!")
+            print("You need to defeat the boss monster before you claim the prize! It killed you!")
             break
 
 #going up
@@ -84,15 +91,16 @@ while True:
         if location == 'sword' or location == 'magic stones':
             inventory.append(location)
             dungeon[current_floor][current_room] = 'nothing'
+            print(f"Here is your inventory: {inventory}")
         elif location == 'prize':
-            print("Congratulations!")
+            print("Congratulations! You have won the game!")
             break
         else:
-            print("There is nothing to grab in this room!")
+            print("There is nothing to grab in this room but the air!")
 
 #showing inventory
     elif player_choices == 'inventory':
-        print(inventory)
+        print(f"Here is your inventory: {inventory}")
 
 #fighting monsters
     elif player_choices == 'fight':
@@ -101,6 +109,7 @@ while True:
                print("What a success! You have successfully killed a monster!")
                dungeon[current_floor][current_room] = 'nothing'
                inventory.remove('sword')
+               print(f"Here is your inventory: {inventory}")
             else:
                 print("You can't fight a monster without a sword! You are now dead!") 
                 break
@@ -110,6 +119,7 @@ while True:
                 print("Good job! You have killed the boss monster! Now go left to claim your prize!")
                 inventory.remove('sword')
                 inventory.remove('magic stones')
+                print(f"Here is your inventory: {inventory}")
             else:
                 print("You didn't have the necessary items to fight the boss! You died!")
                 break
@@ -118,8 +128,8 @@ while True:
 
 #asking for help
     elif player_choices == 'help':
-        print("In this game, you can either move left, right, up, down, grab items, fight monsters, or ask for these commands again.")
+        print("In this game, you can either move left, right, up, down, grab items, fight monsters, view your inventory, or ask for these commands again.")
 
     else:
         print("That is not an available command. \n"
-        "In this game, you can either move left, right, up, down, grab items, fight monsters, or ask for these commands again.")
+        "In this game, you can either move left, right, up, down, grab items, fight monsters, view your inventory, or ask for these commands again.")
