@@ -125,8 +125,12 @@ if q8 == 'y':
 print(score)
 print(food)
 
-print(f"Your favorite food is {food[score.index(max(score))]}.")
+fav_food_index = score.index(max(score))
+
+print(f"Your favorite food is {food[fav_food_index]}.")
 #I can't get this program to display two foods correctly.
+food.pop(fav_food_index)
+score.pop(fav_food_index)
 
 ##############################
 Together in class:
